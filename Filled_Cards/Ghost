@@ -1,0 +1,33 @@
+{
+  "Name": "Ghoulette",
+  "Epithet": "The Squeaky Wheel" , 
+  "Faction": "Evil",
+  "Strategy": "Deception - Roll the wheel Roll the dice",
+  "Art": "Ghost in a wheelchair and the wheels are roulette wheels",
+  "NumRounds": 5,
+  "DiceSize": 6,
+  "Health": 3,
+  "Bio_FlavText": "Disabled by gangsters and now her real addiction is to gambling and not her broken legs",
+  "Quips": {
+    "Filler" : {
+        "1": "I'm para-normal",
+        "2": "Your dice roll is going to put you six feet under",
+        "3": "I'm feeling wheely lucky", 
+        "4": "The last time I exorCised, I didn't live to tell the tale",
+        "5":  "I'm sheeting myself"
+    },
+
+    "Loaded" : {
+        "Higher": {
+            "1": "See you in Hell!"
+        },
+        "Lower": {
+            "1": "See you in Heaven!"
+        },
+        "Same": {
+            "1": "You might think I look different like this, but I feel pretty much the same"
+        }
+    }
+  }
+
+}
