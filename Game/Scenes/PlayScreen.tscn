@@ -5,35 +5,19 @@
 [sub_resource type="GDScript" id="GDScript_btyv4"]
 script/source = "extends Sprite2D
 
-const art_path = \"res://Character_Art/\"
+const character_data_path = \"res://Filled_Characters\"
 var rng = RandomNumberGenerator.new()
 var textures = []
-var files = []
 
-# Find filenames in art_path, ignore .import files.
-func _find_image_files():
-	var dir = DirAccess.open(art_path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != \"\":
-			if not dir.current_is_dir():
-				if \".import\" not in file_name:
-					files.append(file_name)
-			file_name = dir.get_next()
-	else:
-		print(\"An error occurred when trying to access the path.\")
-	
-# Create ImageTexture objects from image files.
-func _import_textures():
-	for file in files:
-		var image = Image.load_from_file(art_path + file)
-		textures.append(ImageTexture.create_from_image(image))
+func get_character_data():
+	pass
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_find_image_files()
-	_import_textures()
+	var texture_importer = load(\"res://Scenes/character_select.gd\").new()
+	texture_importer._find_image_files()
+	textures = texture_importer._import_textures()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
