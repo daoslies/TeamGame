@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6e71euaeoyhn"]
+[gd_scene load_steps=4 format=3 uid="uid://dcbnomws6gwpy"]
 
+[ext_resource type="Script" path="res://Scenes/GetCharacter.gd" id="1_k481s"]
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 
 [sub_resource type="GDScript" id="GDScript_btyv4"]
@@ -26,10 +27,11 @@ func _process(delta):
 "
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_k481s")
 
 [node name="DisabledGhost" type="Sprite2D" parent="."]
 position = Vector2(219.125, 213.125)
-scale = Vector2(0.390381, 0.390381)
+scale = Vector2(0.390381, 0.379713)
 texture = ExtResource("1_mu2wk")
 script = SubResource("GDScript_btyv4")
 
@@ -50,11 +52,6 @@ text = "Hello Hello"
 position = Vector2(9.725, 11.025)
 scale = Vector2(1, 0.989689)
 
-[node name="Higher" type="Polygon2D" parent="HiLowButtons"]
-position = Vector2(67, 417)
-scale = Vector2(0.997312, 1.65738)
-polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
-
 [node name="Same" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(192.905, 417)
 scale = Vector2(0.997312, 1.65738)
@@ -63,4 +60,13 @@ polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 6
 [node name="Lower" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(316.25, 417)
 scale = Vector2(0.997, 1.657)
+polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HiLowButtons"]
+position = Vector2(67, 417)
+scale = Vector2(0.997312, 1.65738)
+
+[node name="Higher" type="Polygon2D" parent="HiLowButtons"]
+position = Vector2(67, 417)
+scale = Vector2(0.997312, 1.65738)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
