@@ -1,0 +1,10 @@
+{
+  "Name": "Second chance",
+  "Art": ,
+  "Rarity": "Common",
+  "Effect": "if your on your last life, play this to roll another dice. Can only be played once. Can be played after the dice in play is revealed.",
+  "Flavourtext": "Thing are looking dicey, and they're about to get diceier.",
+  "Faction": "All",
+  "Price": 10,
+  "Mana": 2
+}

@@ -1,0 +1,33 @@
+{
+  "Name": "Gamer",
+  "Epithet": "xX_NoScope_Xx", 
+  "Faction":"Feeder",
+  "Strategy": "High risk, high reward",
+  "Art": "Sweaty gamer, dorito dust, TSM dirus.",
+  "NumRounds": 30,
+  "DiceSize": 8,
+  "Health": 4,
+  "Bio_FlavText": "Hooked on that sweet, sweeet Higher or Lower",
+  "Quips": {
+    "Filler" : {
+        "1": "I hate the lower end of the probability distributions",
+        "2": "one V one me",
+        "3": "Gamer has been muted for the rest of the game for using inappropriate language",
+        "4": "Leeeeeerooooy Jenkins",
+        "5": "I'll mountain-dew you in"
+    },
+
+    "Loaded" : {
+        "Higher": {
+            "1": "I have the high score"
+        },
+        "Lower": {
+            "1": "I'm stuck in ELO hell"
+        },
+        "Same": {
+            "1": "WTF Two-Shens" 
+        }
+    }
+  }
+
+}
