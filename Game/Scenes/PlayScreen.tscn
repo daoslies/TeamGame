@@ -59,7 +59,7 @@ script = ExtResource("4_tvaq4")
 
 [node name="Same" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(192.905, 417)
-scale = Vector2(0.997312, 1.65738)
+scale = Vector2(0.992344, 1.65738)
 color = Color(1, 1, 0.572549, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
