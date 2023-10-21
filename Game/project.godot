@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="TeamGame"
+run/main_scene="res://Scenes/PlayScreen.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GetCharacter="*res://Scenes/GetCharacter.gd"
 
 [rendering]
 

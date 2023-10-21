@@ -3,19 +3,26 @@ extends RichTextLabel
 #import character
 
 
+
 var seconds = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var character = load("res://Scenes/init_.gd").new()
-	print('Quipds: ', character)
-	text = "Hello world!"
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = str(seconds)
-	seconds+=1
+	var Character = get_node("/root/GetCharacter")
+	var fillres = Character.personify.Quips.Filler
+	for i in fillres.values():
+		print(i)
+		text = i
+	
+	#print('', get_node("/root/GetCharacter.gd"))
+	#text = "Hello world!"
+	#text = str(str(seconds) + str(Character))
+	#seconds+=1
 	pass
 	
 #import all the character files
