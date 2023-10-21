@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbdape1krcfac"]
+
+[ext_resource type="Texture2D" uid="uid://deypbrs4cak34" path="res://Character_Art/DisabledGhost_Win.jpeg" id="1_3ero1"]
+
+[node name="DisabledGhostWin" type="Sprite2D"]
+position = Vector2(264, 300)
+texture = ExtResource("1_3ero1")

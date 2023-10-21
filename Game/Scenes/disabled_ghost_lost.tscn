@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://koyjmanr3rih"]
+
+[ext_resource type="Texture2D" uid="uid://dlp2mm6n07hg3" path="res://Character_Art/DisabledGhost_Lost.jpeg" id="1_j7i5f"]
+
+[node name="DisabledGhostLost" type="Sprite2D"]
+position = Vector2(253, 327)
+texture = ExtResource("1_j7i5f")

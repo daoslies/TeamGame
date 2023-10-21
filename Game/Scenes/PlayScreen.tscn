@@ -1,7 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://n06d7lamp11g"]
+[gd_scene load_steps=2 format=3 uid="uid://dcbnomws6gwpy"]
 
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 
-[node name="DisabledGhost" type="Sprite2D"]
-position = Vector2(248, 324)
+[node name="Node2D" type="Node2D"]
+
+[node name="DisabledGhost" type="Sprite2D" parent="."]
+position = Vector2(219.125, 213.125)
+scale = Vector2(0.390381, 0.390381)
 texture = ExtResource("1_mu2wk")
+
+[node name="QuipBox" type="Polygon2D" parent="."]
+position = Vector2(467, 233)
+polygon = PackedVector2Array(-1.2937, 1.82623, 31.7063, -18.1738, 21.7063, -171.174, 31.7063, -192.174, 65.7063, -203.174, 578.706, -217.174, 586.706, -203.174, 580.706, -30.1738, 62.7063, -8.17377)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuipBox"]
+offset_left = 45.045
+offset_top = -169.79
+offset_right = 217.155
+offset_bottom = -94.875
+scale = Vector2(3.09079, 1.79682)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hello Hello"
+
+[node name="HiLowButtons" type="Node2D" parent="."]
+position = Vector2(9.725, 11.025)
+scale = Vector2(1, 0.989689)
+
+[node name="Higher" type="Polygon2D" parent="HiLowButtons"]
+position = Vector2(67, 417)
+scale = Vector2(0.997312, 1.65738)
+polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
+
+[node name="Same" type="Polygon2D" parent="HiLowButtons"]
+position = Vector2(192.905, 417)
+scale = Vector2(0.997312, 1.65738)
+polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
+
+[node name="Lower" type="Polygon2D" parent="HiLowButtons"]
+position = Vector2(316.25, 417)
+scale = Vector2(0.997, 1.657)
+polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
