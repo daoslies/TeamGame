@@ -1,9 +1,5 @@
 extends RichTextLabel
 
-#import character
-
-
-
 var seconds = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,11 +14,7 @@ func _process(delta):
 	for i in fillres.values():
 		print(i)
 		text = i
-	
-	#print('', get_node("/root/GetCharacter.gd"))
-	#text = "Hello world!"
-	#text = str(str(seconds) + str(Character))
-	#seconds+=1
+
 	pass
 	
 #import all the character files

@@ -1,5 +1,6 @@
 extends Node
 
+signal pressed
 
 var current_scene = null
 var personify
@@ -24,3 +25,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_lower_pressed():
+	print("Lower")
+	return "Lower"
+	pass # Replace with function body.
+
+
+func _on_same_pressed():
+	print("Same")
+	return "Same"
+	pass # Replace with function body.
+
+
+func _on_higher_pressed():
+	print("Higher")
+	return "Higher"
+	pass # Replace with function body.
