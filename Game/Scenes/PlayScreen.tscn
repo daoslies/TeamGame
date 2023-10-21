@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcbnomws6gwpy"]
+[gd_scene load_steps=7 format=3 uid="uid://dcbnomws6gwpy"]
 
 [ext_resource type="Script" path="res://Scenes/GetCharacter.gd" id="1_k481s"]
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 [ext_resource type="Script" path="res://Scenes/QuipSelector.gd" id="2_dn17n"]
+[ext_resource type="Script" path="res://Scenes/Higher_Button.gd" id="4_tvaq4"]
+[ext_resource type="Script" path="res://Scenes/button_click.gd" id="6_x5ibr"]
 
 [sub_resource type="GDScript" id="GDScript_btyv4"]
 script/source = "extends Sprite2D
@@ -53,15 +55,18 @@ script = ExtResource("2_dn17n")
 [node name="HiLowButtons" type="Node2D" parent="."]
 position = Vector2(9.725, 11.025)
 scale = Vector2(1, 0.989689)
+script = ExtResource("4_tvaq4")
 
 [node name="Same" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(192.905, 417)
 scale = Vector2(0.997312, 1.65738)
+color = Color(1, 1, 0.572549, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
 [node name="Lower" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(316.25, 417)
 scale = Vector2(0.997, 1.657)
+color = Color(0, 0.513726, 0.513726, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HiLowButtons"]
@@ -71,4 +76,39 @@ scale = Vector2(0.997312, 1.65738)
 [node name="Higher" type="Polygon2D" parent="HiLowButtons"]
 position = Vector2(67, 417)
 scale = Vector2(0.997312, 1.65738)
+color = Color(0.968627, 0.407843, 0.529412, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("6_x5ibr")
+
+[node name="Higher" type="Button" parent="Node2D"]
+offset_left = 30.0
+offset_top = 500.0
+offset_right = 142.0
+offset_bottom = 532.0
+rotation = -0.340339
+scale = Vector2(0.939582, 1.09409)
+text = "Higher"
+
+[node name="Same" type="Button" parent="Node2D"]
+offset_left = 190.0
+offset_top = 470.0
+offset_right = 241.0
+offset_bottom = 501.0
+text = "Same"
+
+[node name="Lower" type="Button" parent="Node2D"]
+offset_left = 320.0
+offset_top = 490.0
+offset_right = 376.0
+offset_bottom = 521.0
+text = "Lower"
+
+[connection signal="pressed" from="Node2D/Higher" to="." method="_on_higher_pressed"]
+[connection signal="pressed" from="Node2D/Higher" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/Higher" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/Same" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Same" to="." method="_on_same_pressed"]
+[connection signal="pressed" from="Node2D/Lower" to="." method="_on_lower_pressed"]
+[connection signal="pressed" from="Node2D/Lower" to="." method="_on_button_pressed"]
