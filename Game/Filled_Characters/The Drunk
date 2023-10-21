@@ -1,0 +1,34 @@
+{
+  "Name": "The Drunk",
+  "Epithet": "Another round", 
+  "Faction": "Good",
+  "Strategy": "Makes teh number look different. e.g 2 looks like 5 - flipped. 3 looks like 6, double vision",
+  "Art": ,
+  "NumRounds": 3,
+  "DiceSize": 6,
+  "Health": 2,
+  "Bio_FlavText": "Less time thiniing, more time drinking",
+  "Quips": {
+    "Filler" : {
+        "1": "I can't believe you think facing me would beer a good idea",
+        "2": "I'll have a large whiskey, poured over dice",
+        "3": "Seven, eight, wine!",
+        "4": "I love Cockburns",
+        "5": "I got a DUI last week, dicing under the influence"
+    },
+
+    "Loaded" : {
+        "Higher": {
+            "1": "",
+            "2": ""
+        },
+        "Lower": {
+            "1": ""
+        },
+        "Same": {
+            "1": ""
+        }
+    }
+  }
+
+}
