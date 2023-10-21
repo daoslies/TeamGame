@@ -4,9 +4,9 @@
   "Faction":"Sensory",
   "Strategy": "Normal",
   "Art": ,
-  "NumRounds": ,
-  "DiceSize": ,
-  "Health": ,
+  "NumRounds": 3,
+  "DiceSize": 6,
+  "Health": 8,
   "Bio_FlavText": "Works in a bank. 'Hugh-ston, We have a problem!'",
   "Quips": {
     "Filler" : {

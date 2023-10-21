@@ -1,6 +1,7 @@
 {
   "Name": "The Music Man",
-  "PunName": "Whimsical Wesley", 
+  "Epithet": "Whimsical Wesley", 
+  "Faction":"Sensory",
   "Strategy": "Audio Clues",
   "Art": ,
   "NumRounds": 5,
