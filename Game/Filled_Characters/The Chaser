@@ -1,0 +1,34 @@
+{
+  "Name": "The Chaser",
+  "Epithet": "The Chase is On", 
+  "Faction": "Evil",
+  "Strategy": "Outsmarts the player",
+  "Art": ,
+  "NumRounds": 5,
+  "DiceSize": 6,
+  "Health": 3,
+  "Bio_FlavText": "",
+  "Quips": {
+    "Filler" : {
+        "1": "It's time for the one dice shootout",
+        "2": "(On Victory) It's just another day at the office",
+        "3": "We originally had 12 dice, but Mark thought they were smarties and ate 10 of them",
+        "4": "The only thing duller than this gameplay is the audio version of Shaun's book - even he fell asleep when recording it",
+        "5": ""
+    },
+
+    "Loaded" : {
+        "Higher": {
+            "1": "",
+            "2": ""
+        },
+        "Lower": {
+            "1": "You really need to get back to your team, I suggest you take the middle offer"
+        },
+        "Same": {
+            "1": ""
+        }
+    }
+  }
+
+}
