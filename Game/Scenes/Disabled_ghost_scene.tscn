@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://7mmrf2o4ksi0"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_lblod"]
+[ext_resource type="Texture2D" uid="uid://dljpst7gg75tq" path="res://Character_Art/DisabledGhost_2.jpeg" id="2_i23gh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Scene" type="Node2D" parent="."]
+position = Vector2(0.6, -0.29)
+script = ExtResource("1_lblod")
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene"]
+scale = Vector2(173.4, 145.29)
+texture = ExtResource("2_i23gh")
+
+[node name="DisabledGhost2" type="Sprite2D" parent="."]
+position = Vector2(240, 84)
+texture = ExtResource("2_i23gh")
