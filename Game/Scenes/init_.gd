@@ -2,7 +2,7 @@ extends Node2D
 
 # initialise chosen character
 # json to gds script
-
+"""
 func load() -> Dictionary: #"/Filled_Characters/ghost.json"
 	var file = File.new()
 	file.open("/Filled_Characters/ghost.json", File.READ)
@@ -13,7 +13,7 @@ func load() -> Dictionary: #"/Filled_Characters/ghost.json"
 	if character.error != OK:
 		print("Error parsing JSON", character.error)
 	return character
-	
+	"""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

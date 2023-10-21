@@ -1,15 +1,16 @@
-extends Node2D
+extends Node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var x = FileAccess.open("res://Filled_Characters/Ghost.json", FileAccess.Read)
+	var x = FileAccess.open("res://Filled_Characters/Ghost.json", FileAccess.READ)
 	
 	var data_text = x.get_as_text()
 	var json = JSON.new()
 	var data_parse = json.parse(data_text)
 	var data = json.get_data()
 	var personify = data
+	print('Get Character: ', personify.Name)
 	pass # Replace with function body.
 
 
