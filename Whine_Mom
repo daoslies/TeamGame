@@ -1,0 +1,33 @@
+{
+  "Name": "Whine_Mom" ,
+  "Epithet" "It's whine o'clock", 
+  "Faction": "Good",
+  "Strategy": "Distraction",
+  "Art": "Lady carrying bottle of wine complaining",
+  "NumRounds": "3",
+  "DiceSize": "D8",
+  "Health": "4",
+  "Bio_FlavText": "Once her husband left her, she got angry at the world and started hitting the bottle. Now she makes everyone regret messing with her.",
+  "Quips": {
+    "Filler" : {
+        "1": "I can't stop thinking about whining",
+        "2": "I WANT TO SPEAK TO THE MANAGER",
+        "3": "",
+        "4": "",
+        "5": ""
+    },
+
+    "Loaded" : {
+        "Higher": {
+            "1": 
+        },
+        "Lower": {
+            "1": 
+        },
+        "Same": {
+            "1": 
+        }
+    }
+  }
+
+}
