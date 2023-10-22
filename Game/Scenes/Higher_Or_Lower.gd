@@ -47,10 +47,22 @@ func _on_higher_pressed():
 
 
 func _on_same_pressed():
+	Roll2 = roll()
+	Dice2.text = str(Roll2)
+
+	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
+
+	DidYaWin.text = result
 	pass # Replace with function body.
 
 
 func _on_lower_pressed():
+	Roll2 = roll()
+	Dice2.text = str(Roll2)
+
+	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
+
+	DidYaWin.text = result
 	pass # Replace with function body.
 	
 func random_num_gen(DiceSize):
