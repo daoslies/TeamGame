@@ -7,6 +7,8 @@ var fillerQuips
 func _ready():
 	
 	Character = get_node("/root/GetCharacter")
+	
+	print(Character.personify)
 	fillerQuips = Character.personify.Quips.Filler
 
 	text =_filler_quips(fillerQuips)
