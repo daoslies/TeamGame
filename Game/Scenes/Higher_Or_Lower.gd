@@ -4,8 +4,11 @@ var Dice1
 var Dice2 
 var DidYaWin
 var quipSelector
+var ScoreLabel
+var ScoreCounter
 var Roll1
 var Roll2
+var health
 
 var loss
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +18,8 @@ func _ready():
 	Dice2 = get_node("RollLabels/2stRoll")
 	DidYaWin = get_node("RollLabels/DidYaWin")
 	quipSelector = get_node("QuipBox/QuipText")
+	ScoreLabel = get_node("RollLabels/Score")
+	ScoreCounter = 0
 	
 
 	pass # Replace with function body.
@@ -22,6 +27,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	health = quipSelector.Character.personify.Health
+	ScoreLabel.text = str(ScoreCounter) + ' / ' + health
 	pass
 
 func HigherOrLower(dice1, dice2):
@@ -41,6 +49,8 @@ func isCorrect(prediction, label):
 	if prediction == label:
 		
 		loss = 'Win'
+		ScoreCounter += 1
+		
 	else:
 		loss = 'Lose'
 		
@@ -58,6 +68,7 @@ func _on_higher_pressed():
 	DidYaWin.text = result 
 	
 	isCorrect('Higher', result)
+	
 
 	pass # Replace with function body.
 

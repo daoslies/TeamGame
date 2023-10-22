@@ -155,6 +155,14 @@ offset_bottom = 464.455
 scale = Vector2(4, 4)
 script = ExtResource("9_57ppm")
 
+[node name="Score" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 50.0
+offset_top = 538.0
+offset_right = 131.0
+offset_bottom = 562.0
+scale = Vector2(4, 4)
+text = "Score 0/0"
+
 [node name="QuipBox" type="Polygon2D" parent="Buttons"]
 position = Vector2(467, 233)
 polygon = PackedVector2Array(-1.2937, 1.82623, 31.7063, -18.1738, 21.7063, -171.174, 31.7063, -192.174, 65.7063, -203.174, 578.706, -217.174, 586.706, -203.174, 580.706, -30.1738, 62.7063, -8.17377)
