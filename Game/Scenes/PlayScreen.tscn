@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcbnomws6gwpy"]
+[gd_scene load_steps=12 format=3 uid="uid://dcbnomws6gwpy"]
 
 [ext_resource type="Script" path="res://Scenes/GetCharacter.gd" id="1_k481s"]
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 [ext_resource type="Script" path="res://Scenes/QuipSelector.gd" id="2_dn17n"]
+[ext_resource type="Script" path="res://Scenes/Higher_Or_Lower.gd" id="4_4vb1w"]
 [ext_resource type="Script" path="res://Scenes/Higher_Button.gd" id="4_tvaq4"]
 [ext_resource type="Script" path="res://Scenes/StartButtonScript.gd" id="6_odffi"]
 [ext_resource type="Script" path="res://Scenes/button_click.gd" id="6_x5ibr"]
@@ -57,6 +58,7 @@ text = "Hello Hello"
 script = ExtResource("2_dn17n")
 
 [node name="Buttons" type="Node2D" parent="."]
+script = ExtResource("4_4vb1w")
 
 [node name="ButtonImgs" type="Node2D" parent="Buttons"]
 position = Vector2(9.725, 11.025)
@@ -80,54 +82,6 @@ position = Vector2(67, 417)
 scale = Vector2(0.997312, 1.65738)
 color = Color(0.968627, 0.407843, 0.529412, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
-
-[node name="RollLabels" type="Node2D" parent="Buttons/ButtonImgs"]
-position = Vector2(-9.725, -11.1399)
-scale = Vector2(1, 1.01442)
-
-[node name="1stRoll" type="RichTextLabel" parent="Buttons/ButtonImgs/RollLabels"]
-offset_left = 494.46
-offset_top = 295.945
-offset_right = 542.255
-offset_bottom = 323.445
-scale = Vector2(4, 4)
-text = "20"
-script = ExtResource("7_5um64")
-
-[node name="2stRoll" type="RichTextLabel" parent="Buttons/ButtonImgs/RollLabels"]
-offset_left = 905.215
-offset_top = 295.945
-offset_right = 953.01
-offset_bottom = 323.445
-scale = Vector2(4.01511, 4.14964)
-text = "20"
-script = ExtResource("8_n1y0d")
-
-[node name="1stRollLabel" type="RichTextLabel" parent="Buttons/ButtonImgs/RollLabels"]
-offset_left = 473.085
-offset_top = 233.54
-offset_right = 546.19
-offset_bottom = 256.17
-rotation = 6.19592
-scale = Vector2(2.98619, 3.03939)
-text = "1st Roll"
-
-[node name="1stRollLabel2" type="RichTextLabel" parent="Buttons/ButtonImgs/RollLabels"]
-offset_left = 853.315
-offset_top = 222.59
-offset_right = 926.421
-offset_bottom = 245.22
-rotation = 6.19592
-scale = Vector2(3.1424, 3.51518)
-text = "2nd Roll"
-
-[node name="DidYaWin" type="RichTextLabel" parent="Buttons/ButtonImgs/RollLabels"]
-offset_left = 703.975
-offset_top = 424.455
-offset_right = 813.52
-offset_bottom = 464.455
-scale = Vector2(4, 4)
-script = ExtResource("9_57ppm")
 
 [node name="ButtonTriggers" type="Node2D" parent="Buttons"]
 script = ExtResource("6_x5ibr")
@@ -167,19 +121,70 @@ offset_bottom = 241.985
 scale = Vector2(1, 0.98478)
 text = "Start"
 
-[connection signal="ready" from="Buttons/ButtonImgs/RollLabels/1stRoll" to="Buttons/Start" method="_on_st_roll_ready"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_button_pressed"]
+[node name="RollLabels" type="Node2D" parent="Buttons"]
+position = Vector2(0, -3.71933e-05)
+scale = Vector2(1, 1.00396)
+
+[node name="1stRoll" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 494.46
+offset_top = 295.945
+offset_right = 542.255
+offset_bottom = 323.445
+scale = Vector2(4, 4)
+text = "20"
+script = ExtResource("7_5um64")
+
+[node name="2stRoll" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 905.215
+offset_top = 295.945
+offset_right = 953.01
+offset_bottom = 323.445
+scale = Vector2(4.01511, 4.14964)
+text = "20"
+script = ExtResource("8_n1y0d")
+
+[node name="1stRollLabel" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 473.085
+offset_top = 233.54
+offset_right = 546.19
+offset_bottom = 256.17
+rotation = 6.19592
+scale = Vector2(2.98619, 3.03939)
+text = "1st Roll"
+
+[node name="1stRollLabel2" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 853.315
+offset_top = 222.59
+offset_right = 926.421
+offset_bottom = 245.22
+rotation = 6.19592
+scale = Vector2(3.1424, 3.51518)
+text = "2nd Roll"
+
+[node name="DidYaWin" type="RichTextLabel" parent="Buttons/RollLabels"]
+offset_left = 703.975
+offset_top = 424.455
+offset_right = 813.52
+offset_bottom = 464.455
+scale = Vector2(4, 4)
+script = ExtResource("9_57ppm")
+
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_higher_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons" method="_on_higher_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/2stRoll" method="_on_higher_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/DidYaWin" method="_on_higher_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/ButtonTriggers" method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/ButtonImgs/RollLabels/2stRoll" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/ButtonImgs/RollLabels/DidYaWin" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/ButtonImgs/RollLabels/2stRoll" method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/ButtonImgs/RollLabels/DidYaWin" method="_on_same_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons" method="_on_same_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/2stRoll" method="_on_same_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/DidYaWin" method="_on_same_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="." method="_on_lower_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/ButtonImgs/RollLabels/2stRoll" method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/ButtonImgs/RollLabels/DidYaWin" method="_on_lower_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons" method="_on_lower_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/2stRoll" method="_on_lower_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/DidYaWin" method="_on_lower_pressed"]
+[connection signal="pressed" from="Buttons/Start/Button" to="Buttons/RollLabels/1stRoll" method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/Start/Button" to="Buttons/Start" method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/Start/Button" to="Buttons/ButtonImgs/RollLabels/1stRoll" method="_on_button_pressed"]
+[connection signal="ready" from="Buttons/RollLabels/1stRoll" to="Buttons/Start" method="_on_st_roll_ready"]
