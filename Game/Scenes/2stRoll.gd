@@ -23,7 +23,7 @@ func displayText(num):
 func _on_higher_pressed():
 	var Character = get_node("/root/GetCharacter")
 
-	print('clicked')
+	print('clicked_higher_2stRoll')
 	
 	var DiceSize = Character.personify.DiceSize
 
@@ -33,4 +33,33 @@ func _on_higher_pressed():
 	text = str(randum_num)
 		
 	### Time delay between roll and reveal.
+	pass # Replace with function body.
+	
+func _on_lower_pressed():
+	var Character = get_node("/root/GetCharacter")
+
+	print('clicked_lower')
+	
+	var DiceSize = Character.personify.DiceSize
+
+		# rand num generator
+	var rand_num_gen = RandomNumberGenerator.new()		
+	var randum_num = str(int(rand_num_gen.randf_range(1, DiceSize)))
+	text = str(randum_num)
+		
+	### Time delay between roll and reveal.
+	pass # Replace with function body.
+
+
+func _on_same_pressed():
+	var Character = get_node("/root/GetCharacter")
+
+	print('clicked_lower')
+	
+	var DiceSize = Character.personify.DiceSize
+
+		# rand num generator
+	var rand_num_gen = RandomNumberGenerator.new()		
+	var randum_num = str(int(rand_num_gen.randf_range(1, DiceSize)))
+	text = str(randum_num)
 	pass # Replace with function body.
