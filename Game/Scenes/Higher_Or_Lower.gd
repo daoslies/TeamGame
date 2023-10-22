@@ -46,7 +46,8 @@ func HigherOrLower(dice1, dice2):
 	return result
 	
 func isCorrect(prediction, label):
-	if prediction == label:
+	var win =(
+		("Winner") if prediction == label
 		
 		loss = 'Win'
 		ScoreCounter += 1
@@ -55,6 +56,8 @@ func isCorrect(prediction, label):
 		loss = 'Lose'
 		
 	quipSelector.text = quipSelector._filler_quips(quipSelector.fillerQuips)
+	
+	
 	
 
 
@@ -80,6 +83,7 @@ func _on_same_pressed():
 	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
 
 	DidYaWin.text = result
+	isCorrect('Same', result)
 	pass # Replace with function body.
 
 
@@ -90,6 +94,7 @@ func _on_lower_pressed():
 	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
 
 	DidYaWin.text = result
+	isCorrect('Lower', result)
 	pass # Replace with function body.
 	
 func random_num_gen(DiceSize):
