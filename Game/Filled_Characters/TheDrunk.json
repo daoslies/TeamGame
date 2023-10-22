@@ -3,7 +3,8 @@
   "Epithet": "Another round", 
   "Faction": "Good",
   "Strategy": "Makes teh number look different. e.g 2 looks like 5 - flipped. 3 looks like 6, double vision",
-  "Art": ,
+  "Art": "",
+  "ArtPath":"",
   "NumRounds": 3,
   "DiceSize": 6,
   "Health": 2,
@@ -19,8 +20,7 @@
 
     "Loaded" : {
         "Higher": {
-            "1": "",
-            "2": ""
+            "1": ""
         },
         "Lower": {
             "1": ""

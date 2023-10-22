@@ -3,7 +3,8 @@
   "Epithet": "The Cryptic Captain of Cubes", 
   "Faction": "Good",
   "Strategy": "Gives cryptic crossword clues",
-  "Art": ,
+  "Art": "",
+  "ArtPath":"",
   "NumRounds": 5,
   "DiceSize": 6,
   "Health": 3,
@@ -19,8 +20,7 @@
 
     "Loaded" : {
         "Higher": {
-            "1": "",
-            "2": ""
+            "1": ""
         },
         "Lower": {
             "1": ""

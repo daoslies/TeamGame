@@ -4,7 +4,7 @@
   "Faction": "Royalty",
   "Strategy": "Scrambles the number",
   "Art": "Royal Egg",
-  "ArtPath":"res://Character_Art/BallAndChain.png",
+  "ArtPath":["res://Character_Art/BallAndChain.png"],
   "NumRounds": 5,
   "DiceSize": 20,
   "Health": 15,
@@ -20,8 +20,7 @@
 
     "Loaded" : {
         "Higher": {
-            "1": "Your Highness",
-            "2": ""
+            "1": "Your Highness"
         },
         "Lower": {
             "1": "You'll be lower in the ground than lady diceana"

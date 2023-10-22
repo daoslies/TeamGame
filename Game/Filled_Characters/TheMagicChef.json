@@ -1,31 +1,31 @@
 {
-  "Name": "",
-  "Epithet": , 
+  "Name": "Machic_Chef",
+  "Epithet": "", 
   "Faction":"Sensory",
-  "Strategy": ,
-  "Art": ,
-  "NumRounds": ,
-  "DiceSize": ,
-  "Health": ,
-  "Bio_FlavText": ,
+  "Strategy": "",
+  "Art": "",
+  "NumRounds": "",
+  "DiceSize": "",
+  "Health":"" ,
+  "Bio_FlavText":"" ,
   "Quips": {
     "Filler" : {
-        "1": ,
-        "2": ,
-        "3": ,
-        "4": ,
-        "5": 
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": ""
     },
 
     "Loaded" : {
         "Higher": {
-            "1": 
+            "1": ""
         },
         "Lower": {
-            "1": 
+            "1": ""
         },
         "Same": {
-            "1": 
+            "1": ""
         }
     }
   }

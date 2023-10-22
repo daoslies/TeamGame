@@ -3,7 +3,7 @@
   "Epithet": "Hue-Man", 
   "Faction":"Sensory",
   "Strategy": "Normal",
-  "Art": ,
+  "Art": "",
   "ArtPath":["res:///Character_Art/HueMan.png"],
   "NumRounds": 3,
   "DiceSize": 6,
@@ -20,13 +20,13 @@
 
 	"Loaded" : {
 		"Higher": {
-			"1": 
+			"1": ""
 		},
 		"Lower": {
-			"1": 
+			"1": ""
 		},
 		"Same": {
-			"1": 
+			"1": ""
 		}
 	}
   }

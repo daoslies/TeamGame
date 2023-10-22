@@ -1,31 +1,31 @@
 {
-  "Name": ,
-  "Epithet": , 
+  "Name": "Special_k",
+  "Epithet": "", 
   "Faction":"Royalty",
-  "Strategy": ,
-  "Art": ,
-  "NumRounds": ,
-  "DiceSize": ,
-  "Health": ,
+  "Strategy": "",
+  "Art":"" ,
+  "NumRounds": 3,
+  "DiceSize": 16,
+  "Health": 2,
   "Bio_FlavText": "Teacher",
   "Quips": {
     "Filler" : {
-        "1": ,
-        "2": ,
-        "3": ,
-        "4": ,
-        "5": 
+        "1": "",
+        "2": "",
+        "3":"" ,
+        "4": "",
+        "5": ""
     },
 
     "Loaded" : {
         "Higher": {
-            "1": 
+            "1": ""
         },
         "Lower": {
-            "1": 
+            "1": ""
         },
         "Same": {
-            "1": 
+            "1": ""
         }
     }
   }

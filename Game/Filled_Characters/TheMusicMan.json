@@ -3,12 +3,12 @@
   "Epithet": "Whimsical Wesley", 
   "Faction":"Sensory",
   "Strategy": "Audio Clues",
-  "Art": ,
+  "Art": "",
   "ArtPath": ["res://Character_Art/MusicMan_main.jpeg"],
   "NumRounds": 5,
-  "DiceSize": ,
+  "DiceSize": 20,
   "Health": 3,
-  "Bio_FlavText": ,
+  "Bio_FlavText": "",
   "Quips": {
     "Filler" : {
         "1": "Watch out! I come from far away... and I can play",
