@@ -15,7 +15,7 @@ func _process(delta):
 
 
 func _on_pressed(button):
-	print(button.name, 'ouch')
+	print(button.name, 'ouch_PlayScreen')
 	pass # Replace with function body.
 
 
