@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	print("click clock")
+	print("click clock_button_click")
 	pass # Replace with function body.

@@ -12,7 +12,7 @@ func _process(delta):
 
 func HigherOrLower(dice1, dice2):
 	print('x    s',dice1.text)
-	print(dice2.text)
+	print(dice2.text, " HighorLower_Richtextfile")
 	print('Dice 1: ', dice1)
 	print('Dice 2: ', dice2)
 	var result = (
@@ -27,6 +27,7 @@ func HigherOrLower(dice1, dice2):
 	
 
 func _on_higher_pressed():
+	print("Higher_richtext")
 	var Dice1 = get_node("/root/FirstRoll")
 	var Dice2 = get_node("/root/SecondRoll")
 	var result = HigherOrLower(Dice1, Dice2)
@@ -37,21 +38,25 @@ func _on_higher_pressed():
 	pass # Replace with function body.
 
 func _on_lower_pressed():
+	print("Lower_RichText")
 	var Dice1 = get_node("/root/FirstRoll")
 	var Dice2 = get_node("/root/SecondRoll")
-	var result = HigherOrLower(Dice1, Dice2)
+	print(Dice1.get_roll(), 'num num num Richtextfile')
+	print(Dice2.get_roll(), 'twonum Richtextfile')
+	#var result = HigherOrLower(Dice1.get_roll(), Dice2.get_roll())
 	print(Dice1, "xoxox xoxoxo xoxoo")
 	
-	text = result
+	text = "You Chose: Lower" #result
 	
 	pass # Replace with function body.
 	
 func _on_same_pressed():
+	print("Same_richtext")
 	var Dice1 = get_node("/root/FirstRoll")
 	var Dice2 = get_node("/root/SecondRoll")
 	var result = HigherOrLower(Dice1, Dice2)
 	print(Dice1, "xoxox xoxoxo xoxoo")
 	
-	text = result
+	text = "You Chose: The Same"+result
 	
 	pass # Replace with function body.
