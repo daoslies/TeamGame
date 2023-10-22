@@ -30,9 +30,9 @@ func HigherOrLower(dice1, dice2):
 	
 	return result
 
+
 func _on_higher_pressed():
 	print("Higher_richtext")
-
 	var result = HigherOrLower(3,6)  #Dice1, Dice2)
 
 	Dice1.text = result
@@ -48,15 +48,17 @@ func _on_same_pressed():
 func _on_lower_pressed():
 	pass # Replace with function body.
 	
+func random_num_gen(DiceSize):
+	var rand_num_gen = RandomNumberGenerator.new()		
+	var num = int(rand_num_gen.randf_range(1, DiceSize))
+	return num
+	
+	
 func roll():
 	var Character = get_node("/root/GetCharacter")
 	print('Rolling...',)
-	
 	var DiceSize = Character.personify.DiceSize
-
-		# rand num generator
-	var rand_num_gen = RandomNumberGenerator.new()		
-	var roll = int(rand_num_gen.randf_range(1, DiceSize))
+	var roll = random_num_gen(DiceSize)
 	
 	return roll
 
