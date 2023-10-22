@@ -5,10 +5,15 @@ var Dice2
 var DidYaWin
 var quipSelector
 var ScoreLabel
-var ScoreCounter
+var Player_ScoreCounter
+var Enemy_ScoreCounter
 var Roll1
 var Roll2
 var health
+var score2beat
+var roundOver
+var roundCount
+var isRoundWin
 
 var loss
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +24,14 @@ func _ready():
 	DidYaWin = get_node("RollLabels/DidYaWin")
 	quipSelector = get_node("QuipBox/QuipText")
 	ScoreLabel = get_node("RollLabels/Score")
-	ScoreCounter = 0
+	Player_ScoreCounter = 0
+	Enemy_ScoreCounter = 0
+	roundOver = false
+	roundCount = 0
+	isRoundWin = null
+	
+	health = quipSelector.Character.personify.Health
+	score2beat = str(int(health / 2)+1) 
 	
 
 	pass # Replace with function body.
@@ -28,8 +40,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	health = quipSelector.Character.personify.Health
-	ScoreLabel.text = str(ScoreCounter) + ' / ' + health
+	ScoreLabel.text = str(Player_ScoreCounter) + ' / ' + score2beat + "     VS     " + str(Enemy_ScoreCounter) + ' / ' + score2beat
+	
+	if roundOver:
+		if isRoundWin:
+			ScoreLabel.text = ScoreLabel.text + "YOU BEAT THEM"
+		else:
+			ScoreLabel.text = ScoreLabel.text + "YOU R LOSE"
 	pass
 
 func HigherOrLower(dice1, dice2):
@@ -46,18 +63,24 @@ func HigherOrLower(dice1, dice2):
 	return result
 	
 func isCorrect(prediction, label):
-	var win =(
-		("Winner") if prediction == label
-		
+	
+	if prediction == label:
 		loss = 'Win'
-		ScoreCounter += 1
+		Player_ScoreCounter += 1
 		
 	else:
 		loss = 'Lose'
+		Enemy_ScoreCounter += 1
 		
 	quipSelector.text = quipSelector._filler_quips(quipSelector.fillerQuips)
 	
-	
+	if Player_ScoreCounter >= int(score2beat):
+		roundOver = true
+		isRoundWin = true
+		
+	if Enemy_ScoreCounter >= int(score2beat):
+		roundOver = true
+		isRoundWin = false
 	
 
 
