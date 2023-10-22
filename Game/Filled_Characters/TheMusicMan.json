@@ -4,6 +4,7 @@
   "Faction":"Sensory",
   "Strategy": "Audio Clues",
   "Art": ,
+  "ArtPath": ["res://Character_Art/MusicMan_main.jpeg"],
   "NumRounds": 5,
   "DiceSize": ,
   "Health": 3,

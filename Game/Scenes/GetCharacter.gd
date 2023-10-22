@@ -19,7 +19,7 @@ func _ready():
 	
 	# Find filenames in art_path, ignore .import files.
 	var dir = DirAccess.open(char_dict_path)
-	if dir:
+	if dir: 
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":

@@ -4,6 +4,7 @@
   "Faction":"Sensory",
   "Strategy": "Normal",
   "Art": ,
+  "ArtPath":["res:///Character_Art/HueMan.png"],
   "NumRounds": 3,
   "DiceSize": 6,
   "Health": 8,
