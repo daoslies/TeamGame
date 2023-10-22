@@ -1,10 +1,8 @@
 extends RichTextLabel
 
-var roll_two
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.text=  "0"
 	pass # Replace with function body.
 
 

@@ -41,7 +41,7 @@ func _on_higher_pressed():
 
 	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
 
-	DidYaWin.text = result
+	DidYaWin.text = result + str(Roll1) +  str(Roll2)
 
 	pass # Replace with function body.
 
