@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GetCharacter="*res://Scenes/GetCharacter.gd"
+FirstRoll="*res://Scenes/1stRoll.gd"
+SecondRoll="*res://Scenes/2stRoll.gd"
 
 [rendering]
 
