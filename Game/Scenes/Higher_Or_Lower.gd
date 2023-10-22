@@ -3,11 +3,13 @@ extends Node2D
 var Dice1 
 var Dice2 
 var DidYaWin
+var Roll1
+var Roll2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	Dice1 = get_node("RollLabels/1stRoll")   #"/root/FirstRoll")
-	Dice2 = get_node("/root/SecondRoll")
+	Dice2 = get_node("RollLabels/2stRoll")
 	DidYaWin = get_node("RollLabels/DidYaWin")
 	
 
@@ -21,10 +23,11 @@ func _process(delta):
 func HigherOrLower(dice1, dice2):
 	print('Dice 1: ', dice1)
 	print('Dice 2: ', dice2)
+	print(dice1, dice2)
 	var result = (
-	"Higher_" if int(dice1) > int(dice2)
+	"Higher_" if int(dice1) < int(dice2)
 	else "Same" if int(dice1) == int(dice2)
-	else "Lower" if int(dice1) < int(dice2)
+	else "Lower" if int(dice1) > int(dice2)
 	else "Inconclusive"
 	)
 	
@@ -32,12 +35,14 @@ func HigherOrLower(dice1, dice2):
 
 
 func _on_higher_pressed():
-	print("Higher_richtext")
-	var result = HigherOrLower(3,6)  #Dice1, Dice2)
+	
+	Roll2 = roll()
+	Dice2.text = str(Roll2)
 
-	Dice1.text = result
+	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
+
 	DidYaWin.text = result
-	print('Dice1.text: ', Dice1.text, 'result', result)
+
 	pass # Replace with function body.
 
 
@@ -66,7 +71,7 @@ func roll():
 
 
 func _on_start_button_pressed():
-	var roll = roll()
-	Dice1.text = str(roll)
+	Roll1 = roll()
+	Dice1.text = str(Roll1)
 
 	pass # Replace with function body.

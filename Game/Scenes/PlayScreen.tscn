@@ -169,14 +169,14 @@ offset_bottom = 464.455
 scale = Vector2(4, 4)
 script = ExtResource("9_57ppm")
 
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_higher_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons" method="_on_higher_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/ButtonTriggers" method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/2stRoll" method="_on_higher_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/DidYaWin" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_same_pressed"]
+[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons" method="_on_same_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/2stRoll" method="_on_same_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/DidYaWin" method="_on_same_pressed"]
