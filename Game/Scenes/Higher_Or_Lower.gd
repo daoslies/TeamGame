@@ -6,9 +6,10 @@ var DidYaWin
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	Dice1 = get_node("/root/FirstRoll")
+	Dice1 = get_node("RollLabels/1stRoll")   #"/root/FirstRoll")
 	Dice2 = get_node("/root/SecondRoll")
 	DidYaWin = get_node("RollLabels/DidYaWin")
+	
 
 	pass # Replace with function body.
 
@@ -47,6 +48,23 @@ func _on_same_pressed():
 func _on_lower_pressed():
 	pass # Replace with function body.
 	
-func get_roll():
-	print('Get roll: ', self.roll_one)
+func roll():
+	var Character = get_node("/root/GetCharacter")
+	print('Rolling...',)
+	
+	var DiceSize = Character.personify.DiceSize
 
+		# rand num generator
+	var rand_num_gen = RandomNumberGenerator.new()		
+	var roll = int(rand_num_gen.randf_range(1, DiceSize))
+	
+	return roll
+
+
+
+
+func _on_start_button_pressed():
+	var roll = roll()
+	Dice1.text = str(roll)
+
+	pass # Replace with function body.

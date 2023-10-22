@@ -22,15 +22,7 @@ func displayText(text2set):
 
 	
 func _on_button_pressed():
-	var Character = get_node("/root/GetCharacter")
-	print('clicked',)
-	
-	var DiceSize = Character.personify.DiceSize
 
-		# rand num generator
-	var rand_num_gen = RandomNumberGenerator.new()		
-	var roll = int(rand_num_gen.randf_range(1, DiceSize))
-	displayText(roll)
 	#self.outcome = text
 	pass # Replace with function body.
 

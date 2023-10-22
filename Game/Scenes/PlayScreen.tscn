@@ -114,7 +114,7 @@ position = Vector2(512.045, 63.21)
 scale = Vector2(3.09079, 1.80682)
 script = ExtResource("6_odffi")
 
-[node name="Button" type="Button" parent="Buttons/Start"]
+[node name="StartButton" type="Button" parent="Buttons/Start"]
 offset_top = 210.985
 offset_right = 46.0
 offset_bottom = 241.985
@@ -185,6 +185,7 @@ script = ExtResource("9_57ppm")
 [connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons" method="_on_lower_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/2stRoll" method="_on_lower_pressed"]
 [connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/DidYaWin" method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/Start/Button" to="Buttons/RollLabels/1stRoll" method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/Start/Button" to="Buttons/Start" method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons" method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons/RollLabels/1stRoll" method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons/Start" method="_on_button_pressed"]
 [connection signal="ready" from="Buttons/RollLabels/1stRoll" to="Buttons/Start" method="_on_st_roll_ready"]
