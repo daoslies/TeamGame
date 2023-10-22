@@ -3,14 +3,18 @@ extends Node2D
 var Dice1 
 var Dice2 
 var DidYaWin
+var quipSelector
 var Roll1
 var Roll2
+
+var loss
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	Dice1 = get_node("RollLabels/1stRoll")   #"/root/FirstRoll")
 	Dice2 = get_node("RollLabels/2stRoll")
 	DidYaWin = get_node("RollLabels/DidYaWin")
+	quipSelector = get_node("QuipBox/QuipText")
 	
 
 	pass # Replace with function body.
@@ -25,13 +29,23 @@ func HigherOrLower(dice1, dice2):
 	print('Dice 2: ', dice2)
 	print(dice1, dice2)
 	var result = (
-	"Higher_" if int(dice1) < int(dice2)
+	"Higher" if int(dice1) < int(dice2)
 	else "Same" if int(dice1) == int(dice2)
 	else "Lower" if int(dice1) > int(dice2)
 	else "Inconclusive"
 	)
 	
 	return result
+	
+func isCorrect(prediction, label):
+	if prediction == label:
+		
+		loss = 'Win'
+	else:
+		loss = 'Lose'
+		
+	quipSelector.text = quipSelector._filler_quips(quipSelector.fillerQuips)
+	
 
 
 func _on_higher_pressed():
@@ -41,7 +55,9 @@ func _on_higher_pressed():
 
 	var result = HigherOrLower(Roll1,Roll2)  #Dice1, Dice2)
 
-	DidYaWin.text = result + str(Roll1) +  str(Roll2)
+	DidYaWin.text = result 
+	
+	isCorrect('Higher', result)
 
 	pass # Replace with function body.
 
