@@ -1,17 +1,14 @@
 extends RichTextLabel
 
 var seconds = 0
-var Character
+var HigherOrLower
 var fillerQuips
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	Character = get_node("/root/GetCharacter")
 	
-	print(Character.personify)
-	fillerQuips = Character.personify.Quips.Filler
-
-	text =_filler_quips(fillerQuips)
+	
+	#text =_filler_quips()
 
 	pass # Replace with function body.
 
@@ -20,13 +17,24 @@ func _ready():
 func _process(delta):
 	pass
 
-func _filler_quips(fillres):
+func _filler_quips(personify):
+	
+	#HigherOrLower = get_node("/root/HigherOrLower")
+	print('qUIPS')
+	print(personify.Name)
+	
+	fillerQuips = personify.Quips.Filler
+	
+	print(fillerQuips)
+	#rint(HigherOrLower.personify.Name)
 
 	var len_qu = len(fillerQuips)
 	var rand_num_gen = RandomNumberGenerator.new()		
 	var randum_num = str(int(rand_num_gen.randf_range(1, len_qu)))
 
-	var quip = fillres[randum_num]
+	var quip = fillerQuips[randum_num]
+	
+	print(quip)
 
 	return quip
 	

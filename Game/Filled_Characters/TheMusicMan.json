@@ -10,25 +10,25 @@
   "Health": 3,
   "Bio_FlavText": "",
   "Quips": {
-    "Filler" : {
-        "1": "Watch out! I come from far away... and I can play",
-        "2": "My flute can charm anyonw",
-        "3": "I'll strum you like a guitar",
-        "4": "I'll tickel you like my ivory",
-        "5": "Toke note, I'm not fretting"
-    },
+	"Filler" : {
+		"1": "Watch out! I come from far away... and I can play",
+		"2": "My flute can charm anyonw",
+		"3": "I'll strum you like a guitar",
+		"4": "I'll tickel you like my ivory",
+		"5": "Toke note, I'm not fretting"
+	},
 
-    "Loaded" : {
-        "Higher": {
-            "1": "I like my girls like I like my dice... high"
-        },
-        "Lower": {
-            "1": "I like my women like i like my keys... minor"
-        },
-        "Same": {
-            "1": "Although you and I seem far apart, we harmonise"
-        }
-    }
+	"Loaded" : {
+		"Higher": {
+			"1": "I like my girls like I like my dice... high"
+		},
+		"Lower": {
+			"1": "I like my women like i like my keys... minor"
+		},
+		"Same": {
+			"1": "Although you and I seem far apart, we harmonise"
+		}
+	}
   }
 
 }

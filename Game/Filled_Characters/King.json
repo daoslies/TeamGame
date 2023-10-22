@@ -10,25 +10,25 @@
   "Health": 15,
   "Bio_FlavText": "In the highs of their EGGnimatic rule, t",
   "Quips": {
-    "Filler" : {
-        "1": "Why did the egg refuse to play hide and seek? \n Because it always got BEATEN",
-        "2": "I'm so EGGnorent... But They'd never call me a Yolkel",
-        "3": "I'm EGGcited to beat you into peaks",
-        "4": "They call me Princess mEGGhan",
-        "5": "That's not EGG on my face"
-    },
+	"Filler" : {
+		"1": "Why did the egg refuse to play hide and seek? \n Because it always got BEATEN",
+		"2": "I'm so EGGnorent... But They'd never call me a Yolkel",
+		"3": "I'm EGGcited to beat you into peaks",
+		"4": "They call me Princess mEGGhan",
+		"5": "That's not EGG on my face"
+	},
 
-    "Loaded" : {
-        "Higher": {
-            "1": "Your Highness"
-        },
-        "Lower": {
-            "1": "You'll be lower in the ground than lady diceana"
-        },
-        "Same": {
-            "1": "Your going to have same-a-nella"
-        }
-    }
+	"Loaded" : {
+		"Higher": {
+			"1": "Your Highness"
+		},
+		"Lower": {
+			"1": "You'll be lower in the ground than lady diceana"
+		},
+		"Same": {
+			"1": "Your going to have same-a-nella"
+		}
+	}
   }
 
 }

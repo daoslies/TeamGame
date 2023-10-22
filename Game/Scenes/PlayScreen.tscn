@@ -1,14 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcbnomws6gwpy"]
+[gd_scene load_steps=6 format=3 uid="uid://dcbnomws6gwpy"]
 
-[ext_resource type="Script" path="res://Scenes/GetCharacter.gd" id="1_k481s"]
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 [ext_resource type="Script" path="res://Scenes/QuipSelector.gd" id="2_dn17n"]
 [ext_resource type="Script" path="res://Scenes/Higher_Or_Lower.gd" id="4_4vb1w"]
-[ext_resource type="Script" path="res://Scenes/Higher_Button.gd" id="4_tvaq4"]
-[ext_resource type="Script" path="res://Scenes/StartButtonScript.gd" id="6_odffi"]
-[ext_resource type="Script" path="res://Scenes/button_click.gd" id="6_x5ibr"]
-[ext_resource type="Script" path="res://Scenes/1stRoll.gd" id="7_5um64"]
-[ext_resource type="Script" path="res://Scenes/2stRoll.gd" id="8_n1y0d"]
 [ext_resource type="Script" path="res://Scenes/RichTextLabel.gd" id="9_57ppm"]
 
 [sub_resource type="GDScript" id="GDScript_btyv4"]
@@ -17,6 +11,10 @@ script/source = "extends Sprite2D
 const character_data_path = \"res://Filled_Characters\"
 var rng = RandomNumberGenerator.new()
 var textures = []
+
+const art_path = \"res://Character_Art/\"
+
+var personify
 
 func get_character_data():
 	pass
@@ -27,52 +25,54 @@ func _ready():
 	var texture_importer = load(\"res://Scenes/character_select.gd\").new()
 	texture_importer._find_image_files()
 	textures = texture_importer._import_textures()
+	personify = {}
+	personify.ArtPath = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if rng.randf() < 0.01:
-		self.texture = textures[rng.randi() % len(textures)]
+	
+	
+	if personify.ArtPath:
+		print(art_path)
+		print(personify.ArtPath[0])
+		print(art_path + personify.ArtPath[0])
+		var image = Image.load_from_file(personify.ArtPath[0])
+		self.texture = ImageTexture.create_from_image(image)
+		#if rng.randf() < 0.01:
+		#	self.texture = textures[rng.randi() % len(textures)]
+	
+func setpersonify(person):
+	personify = person
 "
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_k481s")
-
-[node name="GhostPic" type="Sprite2D" parent="."]
-position = Vector2(219.125, 213.125)
-scale = Vector2(0.390381, 0.379713)
-texture = ExtResource("1_mu2wk")
-script = SubResource("GDScript_btyv4")
-
-[node name="Buttons" type="Node2D" parent="."]
+[node name="Buttons" type="Node2D"]
 script = ExtResource("4_4vb1w")
 
-[node name="ButtonImgs" type="Node2D" parent="Buttons"]
+[node name="ButtonImgs" type="Node2D" parent="."]
 position = Vector2(9.725, 11.025)
 scale = Vector2(1, 0.989689)
-script = ExtResource("4_tvaq4")
 
-[node name="Same" type="Polygon2D" parent="Buttons/ButtonImgs"]
+[node name="Same" type="Polygon2D" parent="ButtonImgs"]
 position = Vector2(192.905, 417)
 scale = Vector2(0.992344, 1.65738)
 color = Color(1, 1, 0.572549, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
-[node name="Lower" type="Polygon2D" parent="Buttons/ButtonImgs"]
+[node name="Lower" type="Polygon2D" parent="ButtonImgs"]
 position = Vector2(316.25, 417)
 scale = Vector2(0.997, 1.657)
 color = Color(0, 0.513726, 0.513726, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
-[node name="Higher" type="Polygon2D" parent="Buttons/ButtonImgs"]
+[node name="Higher" type="Polygon2D" parent="ButtonImgs"]
 position = Vector2(67, 417)
 scale = Vector2(0.997312, 1.65738)
 color = Color(0.968627, 0.407843, 0.529412, 1)
 polygon = PackedVector2Array(-0.375641, 0.0419922, -26.3756, 29.042, -28.3756, 65.042, 58.6244, 67.042, 56.6244, 23.042)
 
-[node name="ButtonTriggers" type="Node2D" parent="Buttons"]
-script = ExtResource("6_x5ibr")
+[node name="ButtonTriggers" type="Node2D" parent="."]
 
-[node name="Higher" type="Button" parent="Buttons/ButtonTriggers"]
+[node name="Higher" type="Button" parent="ButtonTriggers"]
 offset_left = 30.0
 offset_top = 500.0
 offset_right = 142.0
@@ -81,93 +81,36 @@ rotation = -0.340339
 scale = Vector2(0.939582, 1.09409)
 text = "Higher"
 
-[node name="Same" type="Button" parent="Buttons/ButtonTriggers"]
+[node name="Same" type="Button" parent="ButtonTriggers"]
 offset_left = 190.0
 offset_top = 470.0
 offset_right = 241.0
 offset_bottom = 501.0
 text = "Same"
 
-[node name="Lower" type="Button" parent="Buttons/ButtonTriggers"]
+[node name="Lower" type="Button" parent="ButtonTriggers"]
 offset_left = 320.0
 offset_top = 490.0
 offset_right = 376.0
 offset_bottom = 521.0
 text = "Lower"
 
-[node name="Start" type="Node2D" parent="Buttons"]
+[node name="Start" type="Node2D" parent="."]
 position = Vector2(512.045, 63.21)
 scale = Vector2(3.09079, 1.80682)
-script = ExtResource("6_odffi")
 
-[node name="StartButton" type="Button" parent="Buttons/Start"]
+[node name="StartButton" type="Button" parent="Start"]
 offset_top = 210.985
 offset_right = 46.0
 offset_bottom = 241.985
 scale = Vector2(1, 0.98478)
 text = "Start"
 
-[node name="RollLabels" type="Node2D" parent="Buttons"]
-position = Vector2(0, -3.71933e-05)
-scale = Vector2(1, 1.00396)
-
-[node name="1stRoll" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 494.46
-offset_top = 295.945
-offset_right = 542.255
-offset_bottom = 323.445
-scale = Vector2(4, 4)
-text = "20"
-script = ExtResource("7_5um64")
-
-[node name="2stRoll" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 905.215
-offset_top = 295.945
-offset_right = 953.01
-offset_bottom = 323.445
-scale = Vector2(4.01511, 4.14964)
-text = "20"
-script = ExtResource("8_n1y0d")
-
-[node name="1stRollLabel" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 473.085
-offset_top = 233.54
-offset_right = 546.19
-offset_bottom = 256.17
-rotation = 6.19592
-scale = Vector2(2.98619, 3.03939)
-text = "1st Roll"
-
-[node name="1stRollLabel2" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 853.315
-offset_top = 222.59
-offset_right = 926.421
-offset_bottom = 245.22
-rotation = 6.19592
-scale = Vector2(3.1424, 3.51518)
-text = "2nd Roll"
-
-[node name="DidYaWin" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 703.975
-offset_top = 424.455
-offset_right = 813.52
-offset_bottom = 464.455
-scale = Vector2(4, 4)
-script = ExtResource("9_57ppm")
-
-[node name="Score" type="RichTextLabel" parent="Buttons/RollLabels"]
-offset_left = 50.0
-offset_top = 538.0
-offset_right = 200.0
-offset_bottom = 562.0
-scale = Vector2(4, 4)
-text = "Score 0/0"
-
-[node name="QuipBox" type="Polygon2D" parent="Buttons"]
+[node name="QuipBox" type="Polygon2D" parent="."]
 position = Vector2(467, 233)
 polygon = PackedVector2Array(-1.2937, 1.82623, 31.7063, -18.1738, 21.7063, -171.174, 31.7063, -192.174, 65.7063, -203.174, 578.706, -217.174, 586.706, -203.174, 580.706, -30.1738, 62.7063, -8.17377)
 
-[node name="QuipText" type="RichTextLabel" parent="Buttons/QuipBox"]
+[node name="QuipText" type="RichTextLabel" parent="QuipBox"]
 offset_left = 45.045
 offset_top = -169.79
 offset_right = 217.155
@@ -177,23 +120,85 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Hello Hello"
 script = ExtResource("2_dn17n")
 
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="." method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/ButtonTriggers" method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/2stRoll" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Higher" to="Buttons/RollLabels/DidYaWin" method="_on_higher_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="." method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons" method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/2stRoll" method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Same" to="Buttons/RollLabels/DidYaWin" method="_on_same_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="." method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons" method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/2stRoll" method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/ButtonTriggers/Lower" to="Buttons/RollLabels/DidYaWin" method="_on_lower_pressed"]
-[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons" method="_on_start_button_pressed"]
-[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons/Start" method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/Start/StartButton" to="Buttons/RollLabels/1stRoll" method="_on_button_pressed"]
-[connection signal="ready" from="Buttons/RollLabels/1stRoll" to="Buttons/Start" method="_on_st_roll_ready"]
+[node name="GhostPic" type="Sprite2D" parent="."]
+position = Vector2(219.125, 213.125)
+scale = Vector2(0.390381, 0.379713)
+texture = ExtResource("1_mu2wk")
+script = SubResource("GDScript_btyv4")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="RollLabels" type="Node2D" parent="."]
+position = Vector2(0, -3.71933e-05)
+scale = Vector2(1, 1.00396)
+
+[node name="1stRoll" type="RichTextLabel" parent="RollLabels"]
+offset_left = 494.46
+offset_top = 295.945
+offset_right = 542.255
+offset_bottom = 323.445
+scale = Vector2(4, 4)
+text = "20"
+
+[node name="2stRoll" type="RichTextLabel" parent="RollLabels"]
+offset_left = 905.215
+offset_top = 295.945
+offset_right = 953.01
+offset_bottom = 323.445
+scale = Vector2(4.01511, 4.14964)
+text = "20"
+
+[node name="1stRollLabel" type="RichTextLabel" parent="RollLabels"]
+offset_left = 473.085
+offset_top = 233.54
+offset_right = 546.19
+offset_bottom = 256.17
+rotation = 6.19592
+scale = Vector2(2.98619, 3.03939)
+text = "1st Roll"
+
+[node name="1stRollLabel2" type="RichTextLabel" parent="RollLabels"]
+offset_left = 853.315
+offset_top = 222.59
+offset_right = 926.421
+offset_bottom = 245.22
+rotation = 6.19592
+scale = Vector2(3.1424, 3.51518)
+text = "2nd Roll"
+
+[node name="DidYaWin" type="RichTextLabel" parent="RollLabels"]
+offset_left = 703.975
+offset_top = 424.455
+offset_right = 813.52
+offset_bottom = 464.455
+scale = Vector2(4, 4)
+script = ExtResource("9_57ppm")
+
+[node name="Score" type="RichTextLabel" parent="RollLabels"]
+offset_left = 50.0
+offset_top = 538.0
+offset_right = 325.0
+offset_bottom = 562.0
+scale = Vector2(4, 4)
+text = "Score 0/0"
+
+[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="." method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="ButtonTriggers" method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="RollLabels/2stRoll" method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="RollLabels/DidYaWin" method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="Node2D" method="_on_same_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="Node2D" method="_on_button_2_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="." method="_on_same_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="RollLabels/2stRoll" method="_on_same_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="RollLabels/DidYaWin" method="_on_same_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="Node2D" method="_on_lower_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="." method="_on_lower_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="RollLabels/2stRoll" method="_on_lower_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="RollLabels/DidYaWin" method="_on_lower_pressed"]
+[connection signal="pressed" from="Start/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Start/StartButton" to="Start" method="_on_button_pressed"]
+[connection signal="pressed" from="Start/StartButton" to="RollLabels/1stRoll" method="_on_button_pressed"]
+[connection signal="ready" from="RollLabels/1stRoll" to="Start" method="_on_st_roll_ready"]

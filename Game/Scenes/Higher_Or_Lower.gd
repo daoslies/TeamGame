@@ -5,6 +5,7 @@ var Dice2
 var DidYaWin
 var quipSelector
 var ScoreLabel
+var GhostPic
 var Player_ScoreCounter
 var Enemy_ScoreCounter
 var Roll1
@@ -16,21 +17,40 @@ var roundCount
 var isRoundWin
 
 var loss
+
+# Stuff from original head of tree
+
+var current_scene = null
+var personify
+
+const char_dict_path = "res://Filled_Characters/"
+var filePaths = []
+var characterDirectories = []
+
+var characterID
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	characterDirectories = getCharacter()
+	
+	personify = characterDirectories[0]
+	
 	
 	Dice1 = get_node("RollLabels/1stRoll")   #"/root/FirstRoll")
 	Dice2 = get_node("RollLabels/2stRoll")
 	DidYaWin = get_node("RollLabels/DidYaWin")
 	quipSelector = get_node("QuipBox/QuipText")
 	ScoreLabel = get_node("RollLabels/Score")
+	GhostPic = get_node("GhostPic")
+
 	Player_ScoreCounter = 0
 	Enemy_ScoreCounter = 0
 	roundOver = false
-	roundCount = 0
+	roundCount = 1
 	isRoundWin = null
 	
-	health = quipSelector.Character.personify.Health
+	health = self.personify.Health
 	score2beat = str(int(health / 2)+1) 
 	
 
@@ -40,14 +60,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	ScoreLabel.text = str(Player_ScoreCounter) + ' / ' + score2beat + "     VS     " + str(Enemy_ScoreCounter) + ' / ' + score2beat
-	
-	if roundOver:
-		if isRoundWin:
-			ScoreLabel.text = ScoreLabel.text + "YOU BEAT THEM"
-		else:
-			ScoreLabel.text = ScoreLabel.text + "YOU R LOSE"
 	pass
+
 
 func HigherOrLower(dice1, dice2):
 	print('Dice 1: ', dice1)
@@ -72,7 +86,7 @@ func isCorrect(prediction, label):
 		loss = 'Lose'
 		Enemy_ScoreCounter += 1
 		
-	quipSelector.text = quipSelector._filler_quips(quipSelector.fillerQuips)
+	quipSelector.text = quipSelector._filler_quips(personify)
 	
 	if Player_ScoreCounter >= int(score2beat):
 		roundOver = true
@@ -81,7 +95,33 @@ func isCorrect(prediction, label):
 	if Enemy_ScoreCounter >= int(score2beat):
 		roundOver = true
 		isRoundWin = false
+		
 	
+	ScoreLabel.text = str(Player_ScoreCounter) + ' / ' + score2beat + "     VS     " + str(Enemy_ScoreCounter) + ' / ' + score2beat
+	
+	if roundOver:
+		roundCount += 1
+		
+		if isRoundWin:
+			pass
+			ScoreLabel.text = ScoreLabel.text + "YOU BEAT THEM"
+		else:
+			ScoreLabel.text = ScoreLabel.text + "YOU R LOSE"
+			roundCount -= 1
+			pass
+			
+		personify = characterDirectories[roundCount]
+		self.personify = personify
+		GhostPic.setpersonify(personify)
+		roundOver = false
+		Player_ScoreCounter = 0
+		Enemy_ScoreCounter = 0
+		Dice1.text = "-"
+		Dice2.text = "2"
+		
+		print('Here')
+		print(roundCount)
+		print(personify)
 
 
 func _on_higher_pressed():
@@ -127,7 +167,7 @@ func random_num_gen(DiceSize):
 	
 	
 func roll():
-	var Character = get_node("/root/GetCharacter")
+	var Character = get_node("/root/HigherOrLower")
 	print('Rolling...',)
 	var DiceSize = Character.personify.DiceSize
 	var roll = random_num_gen(DiceSize)
@@ -142,3 +182,39 @@ func _on_start_button_pressed():
 	Dice1.text = str(Roll1)
 
 	pass # Replace with function body.
+	
+	
+	
+func getCharacter():
+ 
+	var root = get_tree().root
+	current_scene = root.get_child(root.get_child_count() - 1)
+	
+	# Find filenames in art_path, ignore .import files.
+	var dir = DirAccess.open(char_dict_path)
+	if dir: 
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir():
+				if ".import" not in file_name:
+					filePaths.append(file_name)
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+		
+	
+	for file in filePaths:
+
+		var x = FileAccess.open(char_dict_path + str(file), FileAccess.READ)
+		
+		var data_text = x.get_as_text()
+		var json = JSON.new()
+		var data_parse = json.parse(data_text)
+		var data = json.get_data()
+		
+		characterDirectories.append(data)
+		
+		
+	return characterDirectories
+	

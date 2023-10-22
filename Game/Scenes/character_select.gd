@@ -23,7 +23,7 @@ func _find_image_files():
 func _import_textures():
 	for file in files:
 		var image = Image.load_from_file(art_path + file)
-		textures.append(ImageTexture.create_from_image(image))
+		textures.append({ "name" : file, "image" : ImageTexture.create_from_image(image)})
 	return textures
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

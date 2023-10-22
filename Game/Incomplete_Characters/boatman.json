@@ -1,0 +1,34 @@
+{
+  "Name": "Boatman",
+  "Epithet": "The Cryptic Captain of Cubes", 
+  "Faction": "Good",
+  "Strategy": "Gives cryptic crossword clues",
+  "Art": "",
+  "ArtPath":"",
+  "NumRounds": 5,
+  "DiceSize": 6,
+  "Health": 3,
+  "Bio_FlavText": "Lives on a boat",
+  "Quips": {
+	"Filler" : {
+		"1": "I'm a Guardian of good dice rolls",
+		"2": "I'll roll one down, you roll one across",
+		"3": "",
+		"4": "",
+		"5": ""
+	},
+
+	"Loaded" : {
+		"Higher": {
+			"1": ""
+		},
+		"Lower": {
+			"1": ""
+		},
+		"Same": {
+			"1": ""
+		}
+	}
+  }
+
+}
