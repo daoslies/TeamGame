@@ -3,9 +3,7 @@ extends RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	self.text = "0"
-	
 	#self.roll = str(0)
 
 	pass # Replace with function body.
@@ -29,7 +27,6 @@ func displayText(num):
 func _on_button_pressed():
 	var Character = get_node("/root/GetCharacter")
 	print('clicked',)
-	
 	
 	var DiceSize = Character.personify.DiceSize
 
