@@ -1,6 +1,7 @@
 extends Sprite2D
 
 const art_path = "res://Character_Art/"
+
 var files = []
 var textures = []
 

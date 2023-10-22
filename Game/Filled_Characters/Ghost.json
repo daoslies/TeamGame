@@ -4,6 +4,7 @@
   "Faction": "Sensory",
   "Strategy": "Deception - Roll the wheel Roll the dice",
   "Art": "Ghost in a wheelchair and the wheels are roulette wheels",
+  "ArtPath": ["res://Character_Art/DisabledGhost_2.jpeg", "res://Character_Art/DisabledGhost_Lost.jpeg", "res://Character_Art/DisabledGhost_Win.jpeg", "res://Character_Art/DisabledGhost.jpeg"],
   "NumRounds": 5,
   "DiceSize": 6,
   "Health": 3,

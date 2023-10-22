@@ -12,13 +12,14 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 	var x = FileAccess.open("res://Filled_Characters/Ghost.json", FileAccess.READ)
-	
 	var data_text = x.get_as_text()
 	var json = JSON.new()
 	var data_parse = json.parse(data_text)
 	var data = json.get_data()
 	self.personify = data
 	print('Get Character: ', personify.Name)
+	
+	var artPath = personify.ArtPath
 	pass # Replace with function body.
 
 

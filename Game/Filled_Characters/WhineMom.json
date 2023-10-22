@@ -1,9 +1,10 @@
 {
   "Name": "Whine_Mom" ,
-  "Epithet" "It's whine o'clock", 
+  "Epithet": "It's whine o'clock", 
   "Faction": "Good",
   "Strategy": "Distraction",
   "Art": "Lady carrying bottle of wine complaining",
+  "ArtPath": ["res://Character_Art/The Drunk.jpg"],
   "NumRounds": "3",
   "DiceSize": "D8",
   "Health": "4",
