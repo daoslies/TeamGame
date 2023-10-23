@@ -15,10 +15,10 @@ func _process(delta):
 
 
 func _on_pressed(button):
-	print(button.name, 'ouch_PlayScreen')
+	#print(button.name, 'ouch_PlayScreen')
 	pass # Replace with function body.
 
 
 func _on_texture_button_toggled(button_pressed):
-	print('bob')
+	#print('bob')
 	pass # Replace with function body.

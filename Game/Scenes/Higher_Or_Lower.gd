@@ -33,6 +33,7 @@ var characterID
 func _ready():
 	
 	characterDirectories = getCharacter()
+	#print(characterDirectories[0])
 	
 	personify = characterDirectories[0]
 	
@@ -43,15 +44,18 @@ func _ready():
 	quipSelector = get_node("QuipBox/QuipText")
 	ScoreLabel = get_node("RollLabels/Score")
 	GhostPic = get_node("GhostPic")
+	
 
 	Player_ScoreCounter = 0
 	Enemy_ScoreCounter = 0
-	roundOver = false
-	roundCount = 1
+	roundOver = true
+	roundCount = 0
 	isRoundWin = null
 	
 	health = self.personify.Health
 	score2beat = str(int(health / 2)+1) 
+	
+
 	
 
 	pass # Replace with function body.
@@ -60,13 +64,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	if roundOver:
+		pass
+		#personify = reset_board(roundCount)
+	
 	pass
 
 
 func HigherOrLower(dice1, dice2):
 	print('Dice 1: ', dice1)
 	print('Dice 2: ', dice2)
-	print(dice1, dice2)
+	#print(dice1, dice2)
 	var result = (
 	"Higher" if int(dice1) < int(dice2)
 	else "Same" if int(dice1) == int(dice2)
@@ -75,6 +83,8 @@ func HigherOrLower(dice1, dice2):
 	)
 	
 	return result
+	
+
 	
 func isCorrect(prediction, label):
 	
@@ -110,19 +120,24 @@ func isCorrect(prediction, label):
 			roundCount -= 1
 			pass
 			
-		personify = characterDirectories[roundCount]
-		self.personify = personify
-		GhostPic.setpersonify(personify)
-		roundOver = false
-		Player_ScoreCounter = 0
-		Enemy_ScoreCounter = 0
-		Dice1.text = "-"
-		Dice2.text = "2"
+		personify = reset_board(roundCount)
+		print(personify, "				personify")
+		#print('Here')
+		#print(roundCount)
+		#print(personify)
 		
-		print('Here')
-		print(roundCount)
-		print(personify)
-
+func reset_board(round_count):
+	personify = characterDirectories[roundCount]
+	self.personify = personify
+	print('reset board', personify)
+	GhostPic.setpersonify(personify)
+	roundOver = false
+	Player_ScoreCounter = 0
+	Enemy_ScoreCounter = 0
+	Dice1.text = "-"
+	Dice2.text = "-"
+	return personify
+	
 
 func _on_higher_pressed():
 	

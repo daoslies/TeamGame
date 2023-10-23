@@ -4,7 +4,7 @@
   "Faction":"Feeder",
   "Strategy": "High risk, high reward",
   "Art": "Sweaty gamer, dorito dust, TSM dirus.",
-  "Art_path" :["res://Character_Artgamer.jpeg"],
+  "ArtPath" :["res://Character_Art/gamer.jpeg"],
   "NumRounds": 30,
   "DiceSize": 8,
   "Health": 4,

@@ -20,12 +20,12 @@ func _process(delta):
 func _filler_quips(personify):
 	
 	#HigherOrLower = get_node("/root/HigherOrLower")
-	print('qUIPS')
+	#print('qUIPS')
 	print(personify.Name)
 	
 	fillerQuips = personify.Quips.Filler
 	
-	print(fillerQuips)
+	#print(fillerQuips)
 	#rint(HigherOrLower.personify.Name)
 
 	var len_qu = len(fillerQuips)

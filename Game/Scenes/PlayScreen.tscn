@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcbnomws6gwpy"]
+[gd_scene load_steps=6 format=3 uid="uid://d0d4mi6034qrg"]
 
 [ext_resource type="Texture2D" uid="uid://b3q2imdh4g32k" path="res://Character_Art/DisabledGhost.jpeg" id="1_mu2wk"]
 [ext_resource type="Script" path="res://Scenes/QuipSelector.gd" id="2_dn17n"]
@@ -28,21 +28,27 @@ func _ready():
 	personify = {}
 	personify.ArtPath = null
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	
-	if personify.ArtPath:
-		print(art_path)
-		print(personify.ArtPath[0])
-		print(art_path + personify.ArtPath[0])
+	#print('Ghostprocess', personify)
+	#var personifyCheck = personify.ArtPath
+	if personify.ArtPath != null:
+		#print(art_path)
+		#print(art_path + personify.ArtPath[0])
 		var image = Image.load_from_file(personify.ArtPath[0])
 		self.texture = ImageTexture.create_from_image(image)
+	else:
+		pass
 		#if rng.randf() < 0.01:
 		#	self.texture = textures[rng.randi() % len(textures)]
 	
 func setpersonify(person):
+	print('setpersonify', person)
 	personify = person
+	self.personify = person
+	print('setpersonify', personify.ArtPath)
 "
 
 [node name="Buttons" type="Node2D"]
@@ -182,20 +188,20 @@ offset_bottom = 562.0
 scale = Vector2(4, 4)
 text = "Score 0/0"
 
-[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_higher_pressed"]
-[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_button_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Higher" to="." method="_on_higher_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Higher" to="ButtonTriggers" method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Higher" to="Node2D" method="_on_button_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Higher" to="RollLabels/2stRoll" method="_on_higher_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Higher" to="RollLabels/DidYaWin" method="_on_higher_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Same" to="." method="_on_same_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Same" to="Node2D" method="_on_same_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Same" to="Node2D" method="_on_button_2_pressed"]
-[connection signal="pressed" from="ButtonTriggers/Same" to="." method="_on_same_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Same" to="RollLabels/2stRoll" method="_on_same_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Same" to="RollLabels/DidYaWin" method="_on_same_pressed"]
+[connection signal="pressed" from="ButtonTriggers/Lower" to="." method="_on_lower_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Lower" to="Node2D" method="_on_lower_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Lower" to="Node2D" method="_on_button_pressed"]
-[connection signal="pressed" from="ButtonTriggers/Lower" to="." method="_on_lower_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Lower" to="RollLabels/2stRoll" method="_on_lower_pressed"]
 [connection signal="pressed" from="ButtonTriggers/Lower" to="RollLabels/DidYaWin" method="_on_lower_pressed"]
 [connection signal="pressed" from="Start/StartButton" to="." method="_on_start_button_pressed"]
